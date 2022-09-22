@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Javascript</title>
+    </head>
+    <body>
+        <script>
+            //Creating a textfile
+            var file_so = new ActiveXObject("Scripting.FileSystemObject");
+            var file_name = "C:\\Users\\Archi Myo\\Desktop\\Javascript\\UniWise.txt";
+            
+            file_so.createTextFile(file_name);
+            
+            //putting contents in a file and opening a file
+           function Put_Contents_tofile()
+           {
+            
+            var file = file_so.GetFile(file_name);
+            var streamWrite =  file.OpenAsTextStream(2);
+               
+            streamWrite.WriteLine("Developer: TEBOGO SEROGOLO" );
+            streamWrite.WriteLIne("Category:  BEST CAMPUS CUP");
+            streamWrite.Write( "Institution:  TUT");
+            streamwite.Close();
+
+           }
+
+           function Read_file()
+           {
+             var file = file_so.GetFile(file_name)
+             var streamReader = file.OpenAsTextStream(1);
+             var Reading_lines = "";
+
+             while(!streamReader.AtEndOfStream ){
+                Reading_lines = streamReader.Reading_lines();
+                document.write(Reading_lines + "<br/>");
+             }
+           }
+           Put_Contents_tofile();
+            
+           Read_file();
+
+        </script>
+    </body>
+</html>
